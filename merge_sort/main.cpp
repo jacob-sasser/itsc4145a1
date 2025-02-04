@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <time.h>
+#include <vector>
+#include <iostream>
+void merge(std::vector<int>& arr, int left, int right, int mid){
+    int n1= left-mid+1;
+    int n2=right-mid;
+    std::vector<int> L(arr.begin() + left, arr.begin() + left + n1);
+    std::vector<int> R(arr.begin() + mid + 1, arr.begin() + mid + 1 + n2);
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(std::vector<int>& arr,int left, int right){
+    if(left<right){
+    int mid=left+(right-left)/2;
+    mergeSort(arr,left,mid);    
+    mergeSort(arr,mid+1,right);
+    merge(arr,left,mid,right);
+}
+}
+
+int main(int argc, char* argv[]){
+    size_t size=atoi(argv[1]);
+    std::vector<int> arr(size);
+    for(size_t i =0;i<size;i++){
+        arr[i]=rand()%100;
+    }
+    srand(time(0));
+    time_t time1=time(0);
+    mergeSort(arr,0,arr.size()-1);
+    time_t time2=time(0);
+    time_t diff=time2-time1;
+    std::cout<<"Time taken:"<< diff <<"\n";
+    return 0;
+
+
+}
