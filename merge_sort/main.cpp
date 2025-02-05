@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 #include <vector>
+#include <chrono>
 #include <iostream>
+
 void merge(std::vector<int>& arr, int left, int mid, int right){
     int n1= mid-left+1;
     int n2=right-mid;
@@ -54,10 +56,10 @@ int main(int argc, char* argv[]){
     
     std::cout<<"Array size: "<<size<<"\n";
     time_t time1=time(0);
+    auto time1=std::chrono::high_resolution_clock::now();
     mergeSort(arr,0,arr.size()-1);
-    time_t time2=time(0);
-    time_t diff=time2-time1;
-
+    auto time2=std::chrono::high_resolution_clock::now();
+    auto diff=std::chrono::duration_cast<std::chrono::microseconds>(time2-time1);
     std::cout<<"Time taken:"<< (diff) <<"\n";
 
     }
