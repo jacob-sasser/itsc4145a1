@@ -2,4 +2,4 @@
 #SBATCH --job-name=myjob
 #SBATCH --partition=Centaurus
 #SBATCH --time=00:10:00
-$HOME/itsc4145a/merge_sort/main.exe 1
+$HOME/itsc4145a1/merge_sort/main.exe 1
