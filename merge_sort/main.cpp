@@ -55,7 +55,7 @@ int main(int argc, char* argv[]){
     }
     
     std::cout<<"Array size: "<<size<<"\n";
-    time_t time1=time(0);
+    
     auto time1=std::chrono::high_resolution_clock::now();
     mergeSort(arr,0,arr.size()-1);
     auto time2=std::chrono::high_resolution_clock::now();
