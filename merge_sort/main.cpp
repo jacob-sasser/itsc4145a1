@@ -60,7 +60,7 @@ int main(int argc, char* argv[]){
     mergeSort(arr,0,arr.size()-1);
     auto time2=std::chrono::high_resolution_clock::now();
     auto diff=std::chrono::duration_cast<std::chrono::microseconds>(time2-time1);
-    std::cout<<"Time taken:"<< (diff) <<"\n";
+    std::cout<<"Time taken:"<< (diff.count()) <<"\n";
 
     }
     return 0;
