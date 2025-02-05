@@ -1,5 +1,6 @@
 #! /bin/bash
 #SBATCH --job-name=myjob
 #SBATCH --partition=Centaurus
-#SBATCH --time=00:10:00
+#SBATCH --time=01:00:00
+#SBATCH --mem=32G
 $HOME/itsc4145a1/merge_sort/main.exe 1
